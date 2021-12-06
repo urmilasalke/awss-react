@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
+var path = require("path");
 dotenv.config();
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var corsOptions = {
@@ -31,6 +33,12 @@ mongoose
   });
 app.use("/getdata", require("./routes/Admission"));
 // app.use("/", require("./routes/Contactus"));
+
+//page not found
+app.get("/*", (req, res) => {
+  res.send("404 page not found");
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
