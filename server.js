@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
-var path = require("path");
+// var path = require("path");
 dotenv.config();
-app.use(express.static(path.join(__dirname, "client", "build")));
+// app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var corsOptions = {
@@ -42,4 +42,4 @@ app.use("/getdata", require("./routes/Admission"));
 app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
-module.exports = app;
+// module.exports = app;
