@@ -33,7 +33,7 @@ mongoose
     console.log("error");
   });
 
-app.use("/", require("./routes/Admission"));
+app.use("/getdata", require("./routes/Admission"));
 // app.use("/", require("./routes/Contactus"));
 
 app.listen(process.env.PORT, () => {
