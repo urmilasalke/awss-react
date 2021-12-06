@@ -9,10 +9,10 @@ import Footer from "./components/Footer";
 import PrePrimary from "./components/PrePrimary";
 import Primary from "./components/Primary";
 import Secondary from "./components/Secondary";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
-    <>
+    <Router>
       <TopHeader />
       <Header />
       <div className="page">
@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 
