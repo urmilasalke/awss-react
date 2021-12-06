@@ -12,7 +12,7 @@ const Primary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`getdata/primary`)
+      .get(`http://localhost:4000/getdata/primary`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })
@@ -49,19 +49,20 @@ const Primary = () => {
                 </tr>
               </thead>
               <tbody>
-                {grades.map((grade) => (
-                  <>
-                    {grade.options.map((option) => (
-                      <>
-                        <tr>
-                          <td>{option.grade}</td>
-                          <td>{option.fees}</td>
-                          <td>{option.seats}</td>
-                        </tr>
-                      </>
-                    ))}
-                  </>
-                ))}
+                {grades &&
+                  grades.map((grade) => (
+                    <>
+                      {grade.options.map((option) => (
+                        <>
+                          <tr>
+                            <td>{option.grade}</td>
+                            <td>{option.fees}</td>
+                            <td>{option.seats}</td>
+                          </tr>
+                        </>
+                      ))}
+                    </>
+                  ))}
               </tbody>
             </Table>
           </div>

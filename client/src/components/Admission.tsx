@@ -11,16 +11,16 @@ import "../style/admission.css";
 const Admission = () => {
   const grades = useSelector((state: MainState) => state.admission.value);
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios
-      .get(`getdata`)
-      .then(({ data }) => {
-        dispatch(setAdmissionGrades(data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`getdata`)
+  //     .then(({ data }) => {
+  //       dispatch(setAdmissionGrades(data));
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   console.log(grades);
   console.log();

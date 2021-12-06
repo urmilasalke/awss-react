@@ -12,7 +12,7 @@ const PrePrimary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`getdata/pre-primary`)
+      .get(`http://localhost:4000/getdata/pre-primary`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })
@@ -52,19 +52,20 @@ const PrePrimary = () => {
                 </tr>
               </thead>
               <tbody>
-                {grades.map((grade) => (
-                  <>
-                    {grade.options.map((option) => (
-                      <>
-                        <tr>
-                          <td>{option.grade}</td>
-                          <td>{option.fees}</td>
-                          <td>{option.seats}</td>
-                        </tr>
-                      </>
-                    ))}
-                  </>
-                ))}
+                {grades &&
+                  grades.map((grade) => (
+                    <>
+                      {grade.options.map((option) => (
+                        <>
+                          <tr>
+                            <td>{option.grade}</td>
+                            <td>{option.fees}</td>
+                            <td>{option.seats}</td>
+                          </tr>
+                        </>
+                      ))}
+                    </>
+                  ))}
               </tbody>
             </Table>
           </div>
