@@ -4,14 +4,11 @@ const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
 dotenv.config();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 var corsOptions = {
   origin: "*",
 };
-
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -32,10 +29,8 @@ mongoose
   .catch(() => {
     console.log("error");
   });
-
 app.use("/getdata", require("./routes/Admission"));
 // app.use("/", require("./routes/Contactus"));
-
 app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
