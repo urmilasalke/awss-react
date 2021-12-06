@@ -12,7 +12,7 @@ const PrePrimary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/pre-primary`)
+      .get(`getdata/pre-primary`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })

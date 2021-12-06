@@ -16,27 +16,27 @@ const admission = require("../model/Admission");
 //   console.log('created')
 // })
 
-router.post("/", (req, res) => {
-  console.log("inside admission post");
+// router.post("/", (req, res) => {
+//   console.log("inside admission post");
 
-  const admissionData = [];
+//   const admissionData = [];
 
-  for (const option of req.body.options) {
-    const opt = {
-      grade: option.grade,
-      fees: option.fees,
-      seats: option.seats,
-    };
-    var newadmission = new admission({
-      category: req.body.category,
-      options: [opt],
-    });
-    newadmission.save();
-    admissionData.push(newadmission);
-  }
-  res.json("data saved");
-  console.log("created");
-});
+//   for (const option of req.body.options) {
+//     const opt = {
+//       grade: option.grade,
+//       fees: option.fees,
+//       seats: option.seats,
+//     };
+//     var newadmission = new admission({
+//       category: req.body.category,
+//       options: [opt],
+//     });
+//     newadmission.save();
+//     admissionData.push(newadmission);
+//   }
+//   res.json("data saved");
+//   console.log("created");
+// });
 
 router.get("/:category", (req, res) => {
   console.log("inside admission");
@@ -47,13 +47,13 @@ router.get("/:category", (req, res) => {
   console.log("created");
 });
 
-router.get("/", (req, res) => {
-  console.log("inside admission");
-  admission
-    .find()
-    .then((data) => res.json(data))
-    .catch(() => res.json("err"));
-  console.log("created");
-});
+// router.get("/", (req, res) => {
+//   console.log("inside admission");
+//   admission
+//     .find()
+//     .then((data) => res.json(data))
+//     .catch(() => res.json("err"));
+//   console.log("created");
+// });
 
 module.exports = router;

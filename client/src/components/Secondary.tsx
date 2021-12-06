@@ -12,7 +12,7 @@ const Secondary = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/secondary`)
+      .get(`getdata/secondary`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })

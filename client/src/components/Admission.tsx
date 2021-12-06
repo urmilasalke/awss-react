@@ -13,7 +13,7 @@ const Admission = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/`)
+      .get(`getdata`)
       .then(({ data }) => {
         dispatch(setAdmissionGrades(data));
       })
