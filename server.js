@@ -12,12 +12,17 @@ var corsOptions = {
   origin: "*",
 };
 app.use(cors(corsOptions));
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  console.log("inside backend");
   next();
 });
 mongoose
@@ -34,11 +39,7 @@ mongoose
 app.use("/getdata", require("./routes/Admission"));
 // app.use("/", require("./routes/Contactus"));
 
-//page not found
-app.get("/*", (req, res) => {
-  res.send("404 page not found");
-});
-
 app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
+module.exports = app;
