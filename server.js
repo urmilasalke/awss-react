@@ -3,9 +3,25 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
 const cors = require("cors");
-// var path = require("path");
+
+//swagger
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: "School API",
+      version: "1.0.0",
+    },
+  },
+  apis: ["./routes/*.js"],
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
 dotenv.config();
-// app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var corsOptions = {
@@ -36,7 +52,9 @@ mongoose
   .catch(() => {
     console.log("error");
   });
+
 app.use("/getdata", require("./routes/Admission"));
+app.use("/contactus", require("./routes/Contactus"));
 // app.use("/", require("./routes/Contactus"));
 
 app.listen(process.env.PORT, () => {

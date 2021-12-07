@@ -38,6 +38,24 @@ const admission = require("../model/Admission");
 //   console.log("created");
 // });
 
+/**
+ * @swagger
+ * /getdata/{category}:
+ *   get:
+ *     summary: Return a admission grade by category
+ *     parameters:
+ *     - in: path
+ *       name: category
+ *       required: true
+ *     description: Get grades
+ *     responses:
+ *       200:
+ *         description: Success
+ *       400:
+ *         description: bad request
+ *
+ */
+
 router.get("/:category", (req, res) => {
   console.log("inside admission");
   admission
