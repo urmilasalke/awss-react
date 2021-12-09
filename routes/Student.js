@@ -30,6 +30,7 @@ router.post("/register", async (req, res) => {
 //   console.log("created");
 // });
 
+console.log("student");
 router.get("/", (req, res) => {
   console.log("inside student");
   Student.find()
