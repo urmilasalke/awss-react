@@ -55,6 +55,8 @@ mongoose
 
 app.use("/getdata", require("./routes/Admission"));
 app.use("/contactus", require("./routes/Contactus"));
+app.use("/student", require("./routes/Student"));
+app.use("/admform", require("./routes/AdmissionForm"));
 // app.use("/", require("./routes/Contactus"));
 
 app.listen(process.env.PORT, () => {
