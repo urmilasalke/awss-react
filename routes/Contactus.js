@@ -35,7 +35,7 @@ const contactUs = require("../model/Contactus");
  *    - in: body
  *      name: body
  *      required: true
- *      description: body of the team
+ *      description: body of the user
  *      schema:
  *       $ref: '#/definitions/Contactus'
  *   requestBody:
